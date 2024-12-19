@@ -1,0 +1,24 @@
+name: Lint and Test Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  my-custom-linter-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js version 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Execute linting checks
+        run: npm run lint
