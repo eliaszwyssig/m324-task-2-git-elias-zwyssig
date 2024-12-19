@@ -1,4 +1,4 @@
-name: Lint and Test Workflow
+name: CI and CD
 
 on:
   pull_request:
